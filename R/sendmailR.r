@@ -153,9 +153,9 @@
   stopifnot(is.character(headers$From))
 
   # remove options to prevent multiple matching arguments
-  curlopts <- setdiff(curlopts,
+  curlopts <- curlopts[setdiff(names(curlopts),
                       c("smtp_server", "mail_from", "mail_rcpt",
-                        "message", "verbose"))
+                        "message", "verbose"))]
   # Default to force
   if (is.null(curlopts$use_ssl)) curlopts$use_ssl <- "force"
 
